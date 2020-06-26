@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.kafein.Entity.Company;
-import com.kafein.Entity.Room;
 import com.kafein.Repo.CompanyRepository;
-import com.kafein.Repo.RoomRepository;
 
 
 @Service

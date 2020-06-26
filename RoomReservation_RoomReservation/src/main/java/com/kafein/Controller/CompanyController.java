@@ -49,5 +49,4 @@ public class CompanyController {
 		return service.deleteCompany(id);
 	}
 	
-
 }

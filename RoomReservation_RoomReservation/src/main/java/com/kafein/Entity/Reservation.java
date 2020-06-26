@@ -1,18 +1,13 @@
 package com.kafein.Entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -36,6 +31,12 @@ public class Reservation {
     @Column(name = "ends")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape= Shape.STRING)
     private String ends;
+    
+    @Column(name = "bool")
+    private Boolean bool;
+    
+    @Column(name = "capacity")
+    private Integer capacity;
 
     private transient Integer roomID;
     
@@ -80,7 +81,7 @@ public class Reservation {
 	}
 	
 	
-	public Room getRoom() {
+	public Room getRoom(Integer integer) {
 		return room;
 	}
 
@@ -114,17 +115,38 @@ public class Reservation {
 	public void setCompanyID(Integer companyID) {
 		this.companyID = companyID;
 	}
+    public Boolean getBool() {
+		return bool;
+	}
+
+	public void setBool(Boolean bool) {
+		this.bool = bool;
+	}
+ 
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(Integer capacity) {
+		this.capacity = capacity;
+	}
 
 	public Reservation() {
 		
 	}
+	
+	
 
-	public Reservation(Integer id, String starts, String ends) {
+	public Reservation(Integer id, String starts, String ends, Boolean bool, Integer capacity) {
 		super();
 		this.id = id;
 		this.starts = starts;
 		this.ends = ends;
+		this.bool = bool; 
+		this.capacity = capacity;
 	}
+
 	
- 
+
 }
+	
